@@ -28,3 +28,17 @@ https://asciinema.org/a/2KTnpGH3hu8M0YIqKWOgf2ACx
 ### Definition of a prime number.
 
 https://asciinema.org/a/3ezcJPByoAqEGlKQgYS2LZagu
+
+#### Usage.
+
+##### Commands for starting games:
+
+**Even number game** - make brain-even
+
+**Progression game** - make brain-progression
+
+**Calculate game** - make brain-calc
+
+**Prime game** - make brain-prime
+
+**GCD game** - make brain-gcd

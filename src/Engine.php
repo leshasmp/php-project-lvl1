@@ -5,15 +5,7 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function askName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    return $name;
-}
-
-function checkValue($answer, $correctAnswer)
+function checkValue($answer, $correctAnswer): bool
 {
     if ($answer == $correctAnswer) {
         return true;
@@ -21,12 +13,7 @@ function checkValue($answer, $correctAnswer)
     return false;
 }
 
-function finishGame($name)
-{
-    line("Congratulations, $name!");
-}
-
-function checkAnswer($question, $correctAnswer, $name)
+function checkAnswer($question, $correctAnswer, string $name): bool
 {
     line('Question: ' . $question);
     $answer = prompt('Your answer');
@@ -41,14 +28,25 @@ function checkAnswer($question, $correctAnswer, $name)
     }
 }
 
-function gcd($a, $b)
+function startGame(string $questionText, callable $condition)
 {
-    while ($a != $b) {
-        if ($a > $b) {
-            $a = $a - $b;
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line($questionText);
+
+    $roundGame = 1;
+
+    while ($roundGame <= 3) {
+        $conditions = $condition();
+        $resultAnswer = checkAnswer($conditions['question'], $conditions['correctAnswer'], $name);
+
+        if ($resultAnswer) {
+            $roundGame++;
         } else {
-            $b = $b - $a;
+            $roundGame = 1;
         }
     }
-    return $a;
+
+    line("Congratulations, $name!");
 }
