@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\startGame;

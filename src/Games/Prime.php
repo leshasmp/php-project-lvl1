@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Brain\Games\Prime;
 
 use function Brain\Games\Engine\startGame;
