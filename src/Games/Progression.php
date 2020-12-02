@@ -6,7 +6,7 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\startGame;
 
-function progressionGame()
+function progressionGame(): void
 {
     $questionText = 'What number is missing in the progression?';
     $condition = function (): array {

@@ -6,7 +6,7 @@ namespace Brain\Games\Prime;
 
 use function Brain\Games\Engine\startGame;
 
-function primeGame()
+function primeGame(): void
 {
     $questionText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $condition = function (): array {

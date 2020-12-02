@@ -15,22 +15,27 @@ function checkValue($answer, $correctAnswer): bool
     return false;
 }
 
+function resultMessage($result, $name, $answer, $correctAnswer): void
+{
+    if ($result) {
+        line('Correct!');
+    } else {
+        line("'%s!' is wrong answer ;(. Correct answer was '$correctAnswer'.", $answer);
+        line("Let's try again, $name");
+    }
+}
+
 function checkAnswer($question, $correctAnswer, string $name): bool
 {
     line('Question: ' . $question);
     $answer = prompt('Your answer');
     $result = checkValue($answer, $correctAnswer);
-    if ($result) {
-        line('Correct!');
-        return true;
-    } else {
-        line("'%s!' is wrong answer ;(. Correct answer was '$correctAnswer'.", $answer);
-        line("Let's try again, $name");
-        return false;
-    }
+    resultMessage($result, $name, $answer, $correctAnswer);
+
+    return $result;
 }
 
-function startGame(string $questionText, callable $condition)
+function startGame(string $questionText, callable $condition): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -38,8 +43,8 @@ function startGame(string $questionText, callable $condition)
     line($questionText);
 
     $roundGame = 1;
-
-    while ($roundGame <= 3) {
+    $maxQuantityGames = 3;
+    while ($roundGame <= $maxQuantityGames) {
         $conditions = $condition();
         $resultAnswer = checkAnswer($conditions['question'], $conditions['correctAnswer'], $name);
 

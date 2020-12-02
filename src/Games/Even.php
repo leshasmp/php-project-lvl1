@@ -6,7 +6,7 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\startGame;
 
-function evenGame()
+function evenGame(): void
 {
     $questionText = 'Answer "yes" if the number is even, otherwise answer "no".';
     $condition = function (): array {
@@ -16,7 +16,7 @@ function evenGame()
         } else {
             $correctAnswer = 'no';
         }
-        return ['question' => (int) $question, 'correctAnswer' => $correctAnswer];
+        return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
     startGame($questionText, $condition);
