@@ -18,12 +18,14 @@ function gcd($a, $b): int
     return $a;
 }
 
-function GCDGame(): void
+function game(): void
 {
     $questionText = 'Find the greatest common divisor of given numbers.';
     $condition = function (): array {
-        $randomNumber1 = rand(1, 100);
-        $randomNumber2 = rand(1, 100);
+        $minNumber = 1;
+        $maxNumber = 100;
+        $randomNumber1 = rand($minNumber, $maxNumber);
+        $randomNumber2 = rand($randomNumber1, $maxNumber);
         $question = "{$randomNumber1} {$randomNumber2}";
         $correctAnswer = gcd($randomNumber1, $randomNumber2);
         return ['question' => $question, 'correctAnswer' => $correctAnswer];

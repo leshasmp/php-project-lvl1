@@ -11,34 +11,30 @@ Brain-games Games is a set of five console games, built on the principle of popu
 
 ### Definition of an even number.
 
+**Even number game** - make brain-even
+
 https://asciinema.org/a/i7wDH77KrEjJIQmjDLDDT8nee
 
 ### Calculator. Arithmetic expressions to be evaluated.
+
+**Calculate game** - make brain-calc
 
 https://asciinema.org/a/QN4FSIuzMa0YbR6RfZhoISoX1
 
 ### Determination of the greatest common factor.
 
+**GCD game** - make brain-gcd
+
 https://asciinema.org/a/wuEdur3JiqhYMUcZQxqkIoKZc
 
 ### Progression. Search for missing numbers in a sequence of numbers.
+
+**Progression game** - make brain-progression
 
 https://asciinema.org/a/2KTnpGH3hu8M0YIqKWOgf2ACx
 
 ### Definition of a prime number.
 
-https://asciinema.org/a/3ezcJPByoAqEGlKQgYS2LZagu
-
-#### Usage.
-
-##### Commands for starting games:
-
-**Even number game** - make brain-even
-
-**Progression game** - make brain-progression
-
-**Calculate game** - make brain-calc
-
 **Prime game** - make brain-prime
 
-**GCD game** - make brain-gcd
+https://asciinema.org/a/3ezcJPByoAqEGlKQgYS2LZagu

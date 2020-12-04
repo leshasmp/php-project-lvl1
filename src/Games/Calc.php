@@ -18,15 +18,17 @@ function getExpression($num1, $operator, $num2): int
     }
 }
 
-function calcGame(): void
+function game(): void
 {
     $questionText = 'What is the result of the expression?';
     $condition = function (): array {
         $operators = array('+', '-', '*');
         $randomKey = array_rand($operators, 1);
         $randomOperator = $operators[$randomKey];
-        $randomNumber1 = rand(1, 100);
-        $randomNumber2 = rand(1, 100);
+        $minNumber = 1;
+        $maxNumber = 100;
+        $randomNumber1 = rand($minNumber, $maxNumber);
+        $randomNumber2 = rand($minNumber, $maxNumber);
         $question = "{$randomNumber1} {$randomOperator} {$randomNumber2}";
         $correctAnswer = getExpression($randomNumber1, $randomOperator, $randomNumber2);
         return ['question' => $question, 'correctAnswer' => (int) $correctAnswer];

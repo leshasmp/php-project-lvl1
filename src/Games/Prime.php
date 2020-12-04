@@ -6,12 +6,14 @@ namespace Brain\Games\Prime;
 
 use function Brain\Games\Engine\startGame;
 
-function primeGame(): void
+function game(): void
 {
     $questionText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $condition = function (): array {
 
-        $question = rand(1, 100);
+        $minNumber = 1;
+        $maxNumber = 100;
+        $question = rand($minNumber, $maxNumber);
 
         $checkPrimeNumber = function ($num): bool {
             if ($num == 2) {

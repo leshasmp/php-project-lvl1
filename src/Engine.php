@@ -7,30 +7,19 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function checkValue($answer, $correctAnswer): bool
+function checkAnswer($question, $correctAnswer, string $name): bool
 {
-    if ($answer == $correctAnswer) {
-        return true;
-    }
-    return false;
-}
+    line('Question: ' . $question);
+    $answer = prompt('Your answer');
 
-function resultMessage($result, $name, $answer, $correctAnswer): void
-{
+    $result = $answer == $correctAnswer;
+
     if ($result) {
         line('Correct!');
     } else {
         line("'%s!' is wrong answer ;(. Correct answer was '$correctAnswer'.", $answer);
         line("Let's try again, $name");
     }
-}
-
-function checkAnswer($question, $correctAnswer, string $name): bool
-{
-    line('Question: ' . $question);
-    $answer = prompt('Your answer');
-    $result = checkValue($answer, $correctAnswer);
-    resultMessage($result, $name, $answer, $correctAnswer);
 
     return $result;
 }

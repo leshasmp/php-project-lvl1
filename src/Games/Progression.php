@@ -6,7 +6,7 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\startGame;
 
-function progressionGame(): void
+function game(): void
 {
     $questionText = 'What number is missing in the progression?';
     $condition = function (): array {
@@ -15,18 +15,22 @@ function progressionGame(): void
         $countNumbers = 10;
         $maxRandomNumber = 100;
         $minRandomNumber = 1;
+        $progressionIndex = 3;
         for ($i = 1; $i <= $countNumbers; $i++) {
-            $minRandomNumber = $minRandomNumber + 3;
+            $minRandomNumber = $minRandomNumber + $progressionIndex;
         }
 
-        $lastNumber = rand($minRandomNumber, $maxRandomNumber + 3);
+        $lastNumber = rand($minRandomNumber, $maxRandomNumber + $progressionIndex);
         $numbers = [];
-        $randomIndex = rand(0, 9);
+
+        $minNumber = 0;
+        $maxNumber = 9;
+        $randomIndex = rand($minNumber, $maxNumber);
         $correctAnswer = 0;
 
         // записываем в массив $numbers 10 чисел начиная с последнего
         for ($i = 0; $i < $countNumbers; $i++) {
-            $lastNumber = $lastNumber - 3;
+            $lastNumber = $lastNumber - $progressionIndex;
             $numbers[$i] = $lastNumber;
             if ($i == $randomIndex) {
                 $numbers[$randomIndex] = '..';
