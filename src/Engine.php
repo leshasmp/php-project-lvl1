@@ -7,6 +7,8 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
+define('QUANTITY_ROUNDS', 3);
+
 function checkAnswer($question, $correctAnswer, string $name): bool
 {
     line('Question: ' . $question);
@@ -31,9 +33,7 @@ function startGame(string $questionText, callable $condition): void
     line("Hello, %s!", $name);
     line($questionText);
 
-    $roundGame = 1;
-    $maxQuantityGames = 3;
-    while ($roundGame <= $maxQuantityGames) {
+    for ($roundGame = 1; $roundGame <= QUANTITY_ROUNDS;) {
         $conditions = $condition();
         $resultAnswer = checkAnswer($conditions['question'], $conditions['correctAnswer'], $name);
 

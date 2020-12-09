@@ -6,29 +6,23 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\startGame;
 
-function game(): void
+define('DESCRIPTION_PROGRESSION', 'What number is missing in the progression?');
+
+function runGame(): void
 {
-    $questionText = 'What number is missing in the progression?';
     $condition = function (): array {
 
-        // получаем минимальное последнее число
         $countNumbers = 10;
         $maxRandomNumber = 100;
-        $minRandomNumber = 1;
+        $minRandomNumber = 31;
         $progressionIndex = 3;
-        for ($i = 1; $i <= $countNumbers; $i++) {
-            $minRandomNumber = $minRandomNumber + $progressionIndex;
-        }
-
-        $lastNumber = rand($minRandomNumber, $maxRandomNumber + $progressionIndex);
-        $numbers = [];
-
         $minNumber = 0;
         $maxNumber = 9;
         $randomIndex = rand($minNumber, $maxNumber);
+        $lastNumber = rand($minRandomNumber, $maxRandomNumber + $progressionIndex);
         $correctAnswer = 0;
+        $numbers = [];
 
-        // записываем в массив $numbers 10 чисел начиная с последнего
         for ($i = 0; $i < $countNumbers; $i++) {
             $lastNumber = $lastNumber - $progressionIndex;
             $numbers[$i] = $lastNumber;
@@ -38,11 +32,10 @@ function game(): void
             }
         }
 
-        $numbers = array_reverse($numbers);
-        $question = implode(' ', $numbers);
+        $question = implode(' ', array_reverse($numbers));
 
         return ['question' => $question, 'correctAnswer' => (int) $correctAnswer];
     };
 
-    startGame($questionText, $condition);
+    startGame(DESCRIPTION_PROGRESSION, $condition);
 }

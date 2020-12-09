@@ -6,20 +6,22 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\startGame;
 
-function game(): void
+define('DESCRIPTION_EVEN', 'Answer "yes" if the number is even, otherwise answer "no".');
+
+function checkEvenNumber(int $number): string
 {
-    $questionText = 'Answer "yes" if the number is even, otherwise answer "no".';
+    return $number % 2 == 0 ? 'yes' : 'no';
+}
+
+function runGame(): void
+{
     $condition = function (): array {
         $minNumber = 1;
         $maxNumber = 100;
         $question = rand($minNumber, $maxNumber);
-        if ($question % 2 == 0) {
-            $correctAnswer = 'yes';
-        } else {
-            $correctAnswer = 'no';
-        }
+        $correctAnswer = checkEvenNumber($question);
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
-    startGame($questionText, $condition);
+    startGame(DESCRIPTION_EVEN, $condition);
 }
