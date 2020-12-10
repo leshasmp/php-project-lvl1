@@ -8,9 +8,9 @@ use function Brain\Games\Engine\startGame;
 
 define('DESCRIPTION_EVEN', 'Answer "yes" if the number is even, otherwise answer "no".');
 
-function checkEvenNumber(int $number): string
+function checkEven(int $number): bool
 {
-    return $number % 2 == 0 ? 'yes' : 'no';
+    return $number % 2 == 0 ;
 }
 
 function runGame(): void
@@ -19,7 +19,7 @@ function runGame(): void
         $minNumber = 1;
         $maxNumber = 100;
         $question = rand($minNumber, $maxNumber);
-        $correctAnswer = checkEvenNumber($question);
+        $correctAnswer = checkEven($question) ? 'yes' : 'no';
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
