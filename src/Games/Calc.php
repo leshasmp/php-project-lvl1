@@ -6,7 +6,7 @@ namespace Brain\Games\Calc;
 
 use function Brain\Games\Engine\startGame;
 
-define('DESCRIPTION_CALCULATE', 'What is the result of the expression?');
+const DESCRIPTION_CALCULATE = 'What is the result of the expression?';
 
 function calculate($operator, $num1, $num2): int
 {
@@ -24,7 +24,7 @@ function calculate($operator, $num1, $num2): int
 
 function runGame(): void
 {
-    $condition = function (): array {
+    $createDescription = function (): array {
         $operators = array('+', '-', '*');
         $randomOperator = $operators[array_rand($operators)];
         $minNumber = 1;
@@ -36,5 +36,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => (int) $correctAnswer];
     };
 
-    startGame(DESCRIPTION_CALCULATE, $condition);
+    startGame(DESCRIPTION_CALCULATE, $createDescription);
 }

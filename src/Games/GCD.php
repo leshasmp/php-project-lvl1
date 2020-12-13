@@ -6,7 +6,7 @@ namespace Brain\Games\GCD;
 
 use function Brain\Games\Engine\startGame;
 
-define('DESCRIPTION_GCD', 'Find the greatest common divisor of given numbers.');
+const DESCRIPTION_GCD = 'Find the greatest common divisor of given numbers.';
 
 function gcd($a, $b): int
 {
@@ -22,7 +22,7 @@ function gcd($a, $b): int
 
 function runGame(): void
 {
-    $condition = function (): array {
+    $createDescription = function (): array {
         $minNumber = 1;
         $maxNumber = 100;
         $randomNumber1 = rand($minNumber, $maxNumber);
@@ -32,5 +32,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
-    startGame(DESCRIPTION_GCD, $condition);
+    startGame(DESCRIPTION_GCD, $createDescription);
 }

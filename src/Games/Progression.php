@@ -6,36 +6,45 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\startGame;
 
-define('DESCRIPTION_PROGRESSION', 'What number is missing in the progression?');
+const DESCRIPTION_PROGRESSION = 'What number is missing in the progression?';
 
 function runGame(): void
 {
-    $condition = function (): array {
+    $createDescription = function (): array {
 
-        $countNumbers = 10;
-        $maxRandomNumber = 100;
-        $minRandomNumber = 31;
-        $progressionIndex = 3;
-        $minNumber = 0;
-        $maxNumber = 9;
-        $randomIndex = rand($minNumber, $maxNumber);
-        $lastNumber = rand($minRandomNumber, $maxRandomNumber + $progressionIndex);
-        $correctAnswer = 0;
+        $minFirstNumber = 1;
+        $minLastNumber = 100;
+        $startNumber = rand($minFirstNumber, $minLastNumber);
+
+        $minProgressionNumber = 1;
+        $maxProgressionNumber = 9;
+        $progressionIndex = rand($minProgressionNumber, $maxProgressionNumber);
+
+        $minLengthNumber = 5;
+        $maxLengthNumber = 10;
+        $lengthProgression = rand($minLengthNumber, $maxLengthNumber);
+
+        $minIndexQuestionNumber = 0;
+        $indexQuestion = rand($minIndexQuestionNumber, $lengthProgression - 1);
+
         $numbers = [];
 
-        for ($i = 0; $i < $countNumbers; $i++) {
-            $lastNumber = $lastNumber - $progressionIndex;
-            $numbers[$i] = $lastNumber;
-            if ($i == $randomIndex) {
-                $numbers[$randomIndex] = '..';
-                $correctAnswer = $lastNumber;
+        for ($i = 0; $i < $lengthProgression; $i++) {
+            if ($i == 0) {
+                $numbers[$i] = $startNumber;
+            } else {
+                $numbers[$i] = $numbers[$i - 1] + $progressionIndex;
             }
         }
 
-        $question = implode(' ', array_reverse($numbers));
+        $correctAnswer = $numbers[$indexQuestion];
+
+        $numbers[$indexQuestion] = '..';
+
+        $question = implode(' ', $numbers);
 
         return ['question' => $question, 'correctAnswer' => (int) $correctAnswer];
     };
 
-    startGame(DESCRIPTION_PROGRESSION, $condition);
+    startGame(DESCRIPTION_PROGRESSION, $createDescription);
 }

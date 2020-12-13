@@ -6,9 +6,9 @@ namespace Brain\Games\Prime;
 
 use function Brain\Games\Engine\startGame;
 
-define('DESCRIPTION_PRIME', 'Answer "yes" if given number is prime. Otherwise answer "no".');
+const DESCRIPTION_PRIME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function checkPrimeNumber(int $num): bool
+function isPrime(int $num): bool
 {
     if ($num == 2) {
         return true;
@@ -29,15 +29,15 @@ function checkPrimeNumber(int $num): bool
 
 function runGame(): void
 {
-    $condition = function (): array {
+    $createDescription = function (): array {
 
         $minNumber = 1;
         $maxNumber = 100;
         $question = rand($minNumber, $maxNumber);
-        $correctAnswer = checkPrimeNumber($question) ? 'yes' : 'no';
+        $correctAnswer = isPrime($question) ? 'yes' : 'no';
 
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
-    startGame(DESCRIPTION_PRIME, $condition);
+    startGame(DESCRIPTION_PRIME, $createDescription);
 }
