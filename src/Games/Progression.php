@@ -11,39 +11,25 @@ const DESCRIPTION_PROGRESSION = 'What number is missing in the progression?';
 function runGame(): void
 {
     $generateRound = function (): array {
-
-        $minFirstNumber = 1;
-        $minLastNumber = 100;
-        $startNumber = rand($minFirstNumber, $minLastNumber);
-
-        $minProgressionNumber = 1;
-        $maxProgressionNumber = 9;
-        $progressionIndex = rand($minProgressionNumber, $maxProgressionNumber);
-
-        $minLengthNumber = 5;
-        $maxLengthNumber = 10;
-        $lengthProgression = rand($minLengthNumber, $maxLengthNumber);
-
+        $startNumber = rand(1, 100);
+        $progressionIndex = rand(1, 9);
+        $progressionLength = rand(5, 10);
         $minIndexQuestionNumber = 0;
-        $indexQuestion = rand($minIndexQuestionNumber, $lengthProgression - 1);
+        $hiddenElementIndex = rand($minIndexQuestionNumber, $progressionLength - 1);
+        $hideSymbol = '..';
 
-        $numbers = [];
-
-        for ($i = 0; $i < $lengthProgression; $i++) {
-            if ($i == 0) {
-                $numbers[$i] = $startNumber;
-            } else {
-                $numbers[$i] = $numbers[$i - 1] + $progressionIndex;
+        $numbers[] = $startNumber;
+        for ($i = 1; $i < $progressionLength; $i++) {
+            $numbers[$i] = $startNumber + $i * $progressionIndex;
+            if ($i == $hiddenElementIndex) {
+                $numbers[$i] = $hideSymbol;
+                $correctAnswer = $startNumber + $i * $progressionIndex;
             }
         }
 
-        $correctAnswer = $numbers[$indexQuestion];
-
-        $numbers[$indexQuestion] = '..';
-
         $question = implode(' ', $numbers);
 
-        return ['question' => $question, 'correctAnswer' => (int) $correctAnswer];
+        return ['question' => $question, 'correctAnswer' => (string) $correctAnswer];
     };
 
     startGame(DESCRIPTION_PROGRESSION, $generateRound);

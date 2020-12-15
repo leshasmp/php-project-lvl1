@@ -9,7 +9,7 @@ use function cli\prompt;
 
 const ROUNDS_COUNT = 3;
 
-function startGame(string $description, callable $condition): void
+function startGame(string $description, callable $generateRound): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -17,14 +17,11 @@ function startGame(string $description, callable $condition): void
     line($description);
 
     for ($roundGame = 1; $roundGame <= ROUNDS_COUNT; $roundGame++) {
-        $conditions = $condition();
-        $correctAnswer = $conditions['correctAnswer'];
-        $question = $conditions['question'];
-
+        ['question' => $question, 'correctAnswer' => $correctAnswer] = $generateRound();
         line("Question: $question");
         $answer = prompt('Your answer');
 
-        if ($answer == $conditions['correctAnswer']) {
+        if ($answer === $correctAnswer) {
             line('Correct!');
         } else {
             line("'%s!' is wrong answer ;(. Correct answer was '$correctAnswer'.", $answer);

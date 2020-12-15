@@ -30,7 +30,6 @@ function isPrime(int $num): bool
 function runGame(): void
 {
     $generateRound = function (): array {
-
         $minNumber = 1;
         $maxNumber = 100;
         $question = rand($minNumber, $maxNumber);
