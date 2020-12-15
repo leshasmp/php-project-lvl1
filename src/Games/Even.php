@@ -6,7 +6,7 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\startGame;
 
-const DESCRIPTION_EVEN = 'Answer "yes" if the number is even, otherwise answer "no".';
+const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(int $number): bool
 {
@@ -23,5 +23,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
-    startGame(DESCRIPTION_EVEN, $generateRound);
+    startGame(DESCRIPTION, $generateRound);
 }
