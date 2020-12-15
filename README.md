@@ -25,16 +25,16 @@ Brain-games Games is a set of five console games, built on the principle of popu
 
 **GCD game** - make brain-gcd
 
-[![asciicast](https://asciinema.org/a/378960.svg)](https://asciinema.org/a/378960)
+[![asciicast](https://asciinema.org/a/379355.svg)](https://asciinema.org/a/379355)
 
 ### Progression. Search for missing numbers in a sequence of numbers.
 
 **Progression game** - make brain-progression
 
-[![asciicast](https://asciinema.org/a/378961.svg)](https://asciinema.org/a/378961)
+[![asciicast](https://asciinema.org/a/379356.svg)](https://asciinema.org/a/379356)
 
 ### Definition of a prime number.
 
 **Prime game** - make brain-prime
 
-[![asciicast](https://asciinema.org/a/378963.svg)](https://asciinema.org/a/378963)
+[![asciicast](https://asciinema.org/a/379357.svg)](https://asciinema.org/a/379357)
