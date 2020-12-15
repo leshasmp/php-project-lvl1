@@ -24,7 +24,7 @@ function calculate($operator, $num1, $num2): int
 
 function runGame(): void
 {
-    $createDescription = function (): array {
+    $generateRound = function (): array {
         $operators = array('+', '-', '*');
         $randomOperator = $operators[array_rand($operators)];
         $minNumber = 1;
@@ -36,5 +36,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => (int) $correctAnswer];
     };
 
-    startGame(DESCRIPTION_CALCULATE, $createDescription);
+    startGame(DESCRIPTION_CALCULATE, $generateRound);
 }

@@ -10,7 +10,7 @@ const DESCRIPTION_PROGRESSION = 'What number is missing in the progression?';
 
 function runGame(): void
 {
-    $createDescription = function (): array {
+    $generateRound = function (): array {
 
         $minFirstNumber = 1;
         $minLastNumber = 100;
@@ -46,5 +46,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => (int) $correctAnswer];
     };
 
-    startGame(DESCRIPTION_PROGRESSION, $createDescription);
+    startGame(DESCRIPTION_PROGRESSION, $generateRound);
 }

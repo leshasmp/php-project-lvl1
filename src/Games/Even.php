@@ -15,7 +15,7 @@ function isEven(int $number): bool
 
 function runGame(): void
 {
-    $createDescription = function (): array {
+    $generateRound = function (): array {
         $minNumber = 1;
         $maxNumber = 100;
         $question = rand($minNumber, $maxNumber);
@@ -23,5 +23,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
-    startGame(DESCRIPTION_EVEN, $createDescription);
+    startGame(DESCRIPTION_EVEN, $generateRound);
 }

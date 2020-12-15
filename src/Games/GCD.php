@@ -22,7 +22,7 @@ function gcd($a, $b): int
 
 function runGame(): void
 {
-    $createDescription = function (): array {
+    $generateRound = function (): array {
         $minNumber = 1;
         $maxNumber = 100;
         $randomNumber1 = rand($minNumber, $maxNumber);
@@ -32,5 +32,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
-    startGame(DESCRIPTION_GCD, $createDescription);
+    startGame(DESCRIPTION_GCD, $generateRound);
 }

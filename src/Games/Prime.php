@@ -29,7 +29,7 @@ function isPrime(int $num): bool
 
 function runGame(): void
 {
-    $createDescription = function (): array {
+    $generateRound = function (): array {
 
         $minNumber = 1;
         $maxNumber = 100;
@@ -39,5 +39,5 @@ function runGame(): void
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
-    startGame(DESCRIPTION_PRIME, $createDescription);
+    startGame(DESCRIPTION_PRIME, $generateRound);
 }

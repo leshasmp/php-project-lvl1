@@ -13,28 +13,28 @@ Brain-games Games is a set of five console games, built on the principle of popu
 
 **Even number game** - make brain-even
 
-https://asciinema.org/a/nX2AlRdwdWZTsGs3IFCxPUr8x
+[![asciicast](https://asciinema.org/a/nX2AlRdwdWZTsGs3IFCxPUr8x.svg)](https://asciinema.org/a/nX2AlRdwdWZTsGs3IFCxPUr8x)
 
 ### Calculator. Arithmetic expressions to be evaluated.
 
 **Calculate game** - make brain-calc
 
-https://asciinema.org/a/378957
+[![asciicast](https://asciinema.org/a/378957.svg)](https://asciinema.org/a/378957)
 
 ### Determination of the greatest common factor.
 
 **GCD game** - make brain-gcd
 
-https://asciinema.org/a/378960
+[![asciicast](https://asciinema.org/a/378960.svg)](https://asciinema.org/a/378960)
 
 ### Progression. Search for missing numbers in a sequence of numbers.
 
 **Progression game** - make brain-progression
 
-https://asciinema.org/a/378961
+[![asciicast](https://asciinema.org/a/378961.svg)](https://asciinema.org/a/378961)
 
 ### Definition of a prime number.
 
 **Prime game** - make brain-prime
 
-https://asciinema.org/a/378963
+[![asciicast](https://asciinema.org/a/378963.svg)](https://asciinema.org/a/378963)
