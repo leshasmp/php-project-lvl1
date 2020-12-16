@@ -13,7 +13,7 @@ function isPrime(int $num): bool
     if ($num == 2) {
         return true;
     }
-    if ($num % 2 == 0) {
+    if ($num % 2 == 0 || $num == 1) {
         return false;
     }
     $i = 3;
